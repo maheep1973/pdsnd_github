@@ -14,8 +14,16 @@ def get_filters(city, month, day):
         (str) month - name of the month to filter by, or "all" to apply no month filter
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
+<<<<<<< HEAD
 
     # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
+||||||| d23f164
+    
+    # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
+=======
+
+    # get user input for city (chicago, new york city, washington).HINT: Use a while loop to handle invalid inputs
+>>>>>>> documentation
     while True:
         city = input("Enter city name:(Chicago , New York City , Washington ").lower()
         if city not in CITY_DATA:
@@ -39,8 +47,16 @@ def get_filters(city, month, day):
         elif time == 'all':
             month = input("Select month as: January, Feburary, March, April, May or June?").lower()
             day = input("Select day as: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday or Sunday").lower()
+<<<<<<< HEAD
             break
         elif time == 'none':
+||||||| d23f164
+            break       
+        elif time == 'none':
+=======
+            break
+        elif time == 'none':#this means that we have to consider month as well as day
+>>>>>>> documentation
             month = 'all'
             day = 'all'
             break
