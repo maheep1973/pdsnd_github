@@ -14,33 +14,33 @@ def get_filters(city, month, day):
         (str) month - name of the month to filter by, or "all" to apply no month filter
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
-    
-    # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
+
+    # get user input for city (chicago, new york city, washington).HINT: Use a while loop to handle invalid inputs
     while True:
         city = input("Enter city name:(Chicago , New York City , Washington ").lower()
         if city not in CITY_DATA:
             print("\nInvalid input try again\n")
-            continue   
+            continue
         else:
             break
 
-    while True: 
-        time = input("Select a filter as: month, day, all or none?").lower()               
+    while True:
+        time = input("Select a filter as: month, day, all or none?").lower()
         if time == 'month':
             month = input("Select month as: January, Feburary, March, April, May or June?").lower()
             day = 'all'
             break
-                    
+
         elif time == 'day':
             month = 'all'
             day = input("Select day as: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday or Sunday").lower()
             break
-                    
+
         elif time == 'all':
-            month = input("Select month as: January, Feburary, March, April, May or June?").lower()           
+            month = input("Select month as: January, Feburary, March, April, May or June?").lower()
             day = input("Select day as: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday or Sunday").lower()
-            break       
-        elif time == 'none':
+            break
+        elif time == 'none':#this means that we have to consider month as well as day
             month = 'all'
             day = 'all'
             break       
@@ -73,7 +73,7 @@ def load_data(city, month, day):
         months = ['january', 'february', 'march', 'april', 'may', 'june']
         month = months.index(month) +1
         df = df[df['month'] == month]
-    
+
     if day != 'all':
         df = df[df['day_of_week'] == day.title()]
 
@@ -85,7 +85,7 @@ def time_stats(df):
 
     print('\nMost Frequent Times of Travel...\n')
     start_time = time.time()#returns time in seconds
-      
+
 
     # display the most common month
     common_month = df['month'].mode()[0]#returns single value in the series
@@ -174,7 +174,7 @@ def user_stats(df):
     else:
         print("Birth year information is not present in this city.")
 
-    
+
     print('-'*45)
 
 """Asking 5 lines of the raw data and more, if they want"""
@@ -191,7 +191,7 @@ def data(df):
             if again == 'no':
                 break
         elif answer == 'no':
-            return 
+            return
 
 
 def main():
