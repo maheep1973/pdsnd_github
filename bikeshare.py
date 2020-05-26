@@ -125,7 +125,7 @@ def station_stats(df):
     df['combination'] = df['Start Station'] + ' to ' + df['End Station']
     common_combination = df['combination'].mode()[0]
     print(common_combination)
-
+    print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*45)
 
 
